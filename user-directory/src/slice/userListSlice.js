@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   user: undefined,
 };
-const userSlice = createSlice({
+const userListSlice = createSlice({
   name: "userList",
   initialState: initialState,
   reducers: {
@@ -26,5 +26,9 @@ const userSlice = createSlice({
     },
   },
 });
-export const { getUserDetailsRequest, getUserDetailsSuccess, getUserDetailsFailure } = userSlice.actions;
-export default userSlice.reducer;
+export const {
+  getUserDetailsRequest,
+  getUserDetailsSuccess,
+  getUserDetailsFailure,
+} = userListSlice.actions;
+export default userListSlice.reducer;

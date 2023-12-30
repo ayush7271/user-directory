@@ -1,16 +1,11 @@
 // src/App.js
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { getUserDetailsRequest } from "./slice/userListSlice";
+import { User } from "./components/User";
 import { UserDetails } from "./components/UserDetails";
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getUserDetailsRequest());
-  }, []);
-
   return (
     <>
       <Routes>
@@ -18,11 +13,18 @@ const App = () => {
           path="/"
           element={
             <>
+              <User />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/:id"
+          element={
+            <>
               <UserDetails />
             </>
           }
         ></Route>
-        <Route path="/" element={<></>}></Route>
       </Routes>
     </>
   );
