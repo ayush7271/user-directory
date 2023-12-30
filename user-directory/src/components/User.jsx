@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserDetailsRequest } from "../slice/userListSlice";
 import { getUserPostSliceRequest } from "../slice/getUserPostSlice";
 import { useNavigate } from "react-router-dom";
+import { getCountriesSliceRequest } from "../slice/getCountriesSlice";
 
 export const User = () => {
   const [post, setPost] = useState({});
@@ -13,6 +14,7 @@ export const User = () => {
   useEffect(() => {
     dispatch(getUserDetailsRequest());
     dispatch(getUserPostSliceRequest());
+    dispatch(getCountriesSliceRequest());
   }, []);
   function getpost() {
     let obj = {};

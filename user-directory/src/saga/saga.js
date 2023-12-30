@@ -63,14 +63,14 @@ export function* getUserPostSliceRequestSaga() {
   }
 }
 
-export function* getCurrentTimeSliceRequestSaga() {
+export function* getCurrentTimeSliceRequestSaga(param) {
   const headers = {
     "Content-Type": "application/json",
   };
   try {
     const response = yield call(() =>
       callAPI({
-        url: `https://jsonplaceholder.typicode.com/users`,
+        url: `https://worldtimeapi.org/api/timezone/${param?.payload?.country}`,
         headers: headers,
       })
     );
@@ -87,7 +87,7 @@ export function* getCountriesSliceRequestSaga() {
   try {
     const response = yield call(() =>
       callAPI({
-        url: `https://jsonplaceholder.typicode.com/posts`,
+        url: `http://worldtimeapi.org/api/timezone`,
         headers: headers,
       })
     );
