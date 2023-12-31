@@ -1,4 +1,8 @@
 @import url("./tailwind/tailwind.output.scss");
+.modal-content {
+  width: 400px;
+  margin: auto;
+}
 
 @media screen and (min-width: 768px) {
   .user-list {
@@ -23,13 +27,13 @@
   }
   .post1 {
     font-size: 18px;
-    display: flex ;
+    display: flex;
   }
-  .user{
+  .user {
     font-size: 80px;
-    padding-top:50px;
+    padding-top: 50px;
   }
-  .c1{
+  .c1 {
     padding-top: 100px;
   }
 }

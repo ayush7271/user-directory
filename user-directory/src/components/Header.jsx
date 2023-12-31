@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentTimeSliceRequest } from "../slice/getCurrentTimeSlice";
+import { useNavigate } from "react-router-dom";
 
 export const Header = ({ data }) => {
   const [country, setCountry] = useState("");
@@ -8,6 +9,7 @@ export const Header = ({ data }) => {
   const time = useSelector((state) => state?.currentTime);
   const [timer, setTimer] = useState("");
   const [toggle, setToggle] = useState(false);
+  const navigate = useNavigate();
   let int;
 
   useEffect(() => {
@@ -65,10 +67,16 @@ export const Header = ({ data }) => {
       }
     }
   };
+  const handleNavigate = () => {
+    navigate("/");
+  };
 
   return (
     <div className="w-[100%] h-[70px] bg-[#272727] flex justify-between">
-      <div className="w-[220px] text-[yellow] pt-[18px] ml-[3%] font-bold text-[25px]">
+      <div
+        className="w-[220px] text-[yellow] pt-[18px] ml-[3%] font-bold text-[25px]"
+        onClick={handleNavigate}
+      >
         Back
       </div>
 
@@ -87,7 +95,7 @@ export const Header = ({ data }) => {
           ))}
         </select>
       </div>
-      <div className="mt-[10px] rounded-lg flex pt-[8px] justify-around  w-[200px] mr-[3%] h-[50px] bg-[green] text-[25px] text-center">
+      <div className="mt-[18px] rounded-lg flex pt-[5px] justify-around  w-[200px] mr-[3%] h-[40px] bg-[green] text-[25px] text-center">
         {formatTime(timer)}
         <button className="-pt-[8px]" onClick={handletoggle}>
           {!toggle ? "Pause" : "Start"}
