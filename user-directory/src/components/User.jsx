@@ -36,7 +36,7 @@ export const User = () => {
   }, [userPost]);
 
   const handleNavigate = (id) => {
-    navigate(`${id}`);
+    navigate(`/${id}`);
   };
 
   return (
